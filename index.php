@@ -7,16 +7,16 @@
 	 <style type="text/css">
       body {
         padding-top: 40px;
+        padding-left: 40px;
         padding-bottom: 40px;
-        background-color: #f5f5f5;
+        background-color: #333333;
       }
 
       .form-download {
-        max-width: 300px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
+        max-width: 520px;
+        padding: 10px 10px 10px;
+        background-color: #666;
+        border: 1px solid #696969;
         -webkit-border-radius: 5px;
            -moz-border-radius: 5px;
                 border-radius: 5px;
@@ -24,6 +24,7 @@
            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
                 box-shadow: 0 1px 2px rgba(0,0,0,.05);
       }
+
       .form-download .form-download-heading,
       .form-download .checkbox {
         margin-bottom: 10px;
@@ -39,16 +40,27 @@
         float: right;
         margin-top: 5px
       }
-
+      #videoid {
+        width: 400px;
+        background-color: #999;
+        font-size: 14px;
+        color: #EEE;
+        margin-bottom: 0px;
+      }
+      #type {
+      }
     </style>
 	</head>
 <body>
 	<form class="form-download" method="get" id="download" action="getvideo.php">
-		<h1 class="form-download-heading">Youtube Downloader</h1>
+		<!--<h1 class="form-download-heading">Youtube Downloader</h1>-->
 		<input type="text" name="videoid" id="videoid" size="40" placeholder="VideoID" />
-		<input class="btn btn-primary" type="submit" name="type" id="type" value="Download" />
-		<p>Put in just the ID bit, the part after v=.</p>
-		<p>Example: http://www.youtube.com/watch?v=<b>Fw-BM-Mqgeg</b></p>
+		<input type="hidden" name="type" id="type" value="Download"/>
+    <!--<button class="btn btn-primary" type="submit" name="go" id="type" value="Download" />-->
+    <button id="go" type="button" class="btn btn-default" onclick="document.getElementById('download').submit();">Download</button>
+<!--  -->
+		<!--<p>Put in just the ID bit, the part after v=.</p>
+		<p>Example: http://www.youtube.com/watch?v=<b>Fw-BM-Mqgeg</b></p>-->
 
     <!-- @TODO: Prepend the base URI -->
     <?PHP
@@ -61,8 +73,8 @@
 	}
 	return false;	// if isn't chrome return false
     }
-    if(($config['feature']['browserExtensions']==true)&&(is_chrome()))
-      echo '<a href="ytdl.user.js" class="userscript btn btn-mini" title="Install chrome extension to view a \'Download\' link to this application on Youtube video pages."> Install Chrome Extension </a>';
+    //if(($config['feature']['browserExtensions']==true)&&(is_chrome()))
+      //echo '<a href="ytdl.user.js" class="userscript btn btn-mini" title="Install chrome extension to view a \'Download\' link to this application on Youtube video pages."> Install Chrome Extension </a>';
     ?>
   </form>
 </body>

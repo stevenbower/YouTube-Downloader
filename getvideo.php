@@ -51,6 +51,7 @@ if(isset($_REQUEST['videoid'])) {
 				echo '<p>No video id passed in</p>';
 				exit;
 			}
+		}else if(false) {// ADD http://youtu.be/chppF5jqKNw?list=PLLtPsDVze-gygX3hwht0O11KrtAND6KMI support
 		}else{
 			echo '<p>Invalid url</p>';
 			exit;
@@ -80,15 +81,23 @@ if ($my_type == 'Download') {
       	body {
 	        padding-top: 40px;
 	        padding-bottom: 40px;
-	        background-color: #f5f5f5;
+          background-color: #333333;
+          color: #CCC;
 	}
+
+  a {
+    color: #DDD;
+  }
+  a:hover {
+    color: #FFF;
+  }
 
 	.download {
 	        max-width: 300px;
 	        padding: 19px 29px 29px;
 	        margin: 0 auto 20px;
-	        background-color: #fff;
-	        border: 1px solid #e5e5e5;
+	        background-color: #666;
+	        border: 1px solid #696969;
 	        -webkit-border-radius: 5px;
 	           -moz-border-radius: 5px;
 	                border-radius: 5px;
@@ -137,7 +146,7 @@ if ($my_type == 'Download') {
 	</head>
 <body>
 	<div class="download">
-	<h1 class="download-heading">Youtube Downloader Results</h1>
+	<!--<h1 class="download-heading">Youtube Downloader Results</h1>-->
 <?php
 } // end of if for type=Download
 
@@ -227,10 +236,10 @@ if ($my_type == 'Download') {
 			'<small><span class="size">' . formatBytes(get_size($avail_formats[$i]['url'])) . '</span></small>'.
 		'</li>';
 	}
-	echo '</ul><small>Note that you initiate download either by clicking video format link or click "download" to use this server as proxy.</small>';
+	//echo '</ul><small>Note that you initiate download either by clicking video format link or click "download" to use this server as proxy.</small>';
 
-  if(($config['feature']['browserExtensions']==true)&&(is_chrome()))
-    echo '<a href="ytdl.user.js" class="userscript btn btn-mini" title="Install chrome extension to view a \'Download\' link to this application on Youtube video pages."> Install Chrome Extension </a>';
+  //if(($config['feature']['browserExtensions']==true)&&(is_chrome()))
+    //echo '<a href="ytdl.user.js" class="userscript btn btn-mini" title="Install chrome extension to view a \'Download\' link to this application on Youtube video pages."> Install Chrome Extension </a>';
 ?>
 
 </body>
